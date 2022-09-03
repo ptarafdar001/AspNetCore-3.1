@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -9,9 +8,116 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="~/css/Site.css" rel="stylesheet" />
+    @*using bootstrap from lib folder*@
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
-    <h1>Wellome to Book Store Application</h1>
+<body class="container"> 
+    <h1 class="h1">Wellome to Book Store Application</h1>
     <p>This is the Home page of our book Store Application</p>
+
+    <!-- comment start
+
+    @*C# logic inside the HTML code....this is known as rezor syntax*@
+    @*and all the C# code are converted into HTML code by the Rezor view Engine*@
+    @*Rezor single line syntax*@
+    <h3>@DateTime.Now</h3>
+
+    @*formated date from DateTime class*@
+    <h3>@DateTime.Now.ToString("dd/mm/yyyy")</h3>
+
+    <h3>Sum = @(10+5)</h3>
+
+    @*Rezor multiline syntax*@
+    @{
+        int a = 10;
+        int b = 4;
+        int c = a + b;
+    }
+    <h3>Multiline Sum = @c</h3>
+
+    <h4>My Email ID - prabir123@gmail.com</h4>
+
+    @*Escape sequence in Razor *@
+    <h4>Twitter - @@PrabirTwitter</h4>
+
+    @*conditional statement in Resor View*@
+    @{
+        int n = 10;
+    }
+
+    @if (n > 5)
+    {
+        n++;
+        <h4>Hello from if block and value = @n</h4>
+    }
+    else if (n == 10)
+    {
+        <h4>Hello from else if block</h4>
+    }
+    else
+    {
+        <h4>Hello from else if block</h4>
+    }
+
+    @*ternary operator in Rezor view*@
+    <p>Ternary operator result = @(a == 10 ?b = 6: b = 20)</p>
+
+    @*switch statement in razor view*@
+
+    @{
+        int choice = 5;
+    }
+
+    @switch (choice)
+    {
+        case 1:
+            <h4>I am inside case 1 </h4>
+            break;
+        case 2:
+            <h4>I am inside case 2 </h4>
+            break;
+        case 3:
+            <h4>I am inside case 3 </h4>
+            break;
+        default:
+            <h4>I am inside default case </h4>
+            break;
+    }
+
+    @*for loops in rezor view*@
+    @for (int i = 0; i < 10; i++)
+    {
+        <h5>for loop index i = @i</h5>
+    }
+
+    @{
+        var list = new List<int>() { 1, 2, 3, 4, 5 };
+    }
+    @foreach (var item in list)
+    {
+        <h5>foreach loop item = @item</h5>
+    }
+
+    comment end-->
+    @*static files (image, css, js) in MVC application
+        all static files are plased inside at the 'wwwroot' folder*@
+    @*how to access static files from rezor view page?*@
+    <img src="~/images/prabir_img.jpg" class="logo" alt="logo" />
+
+    @*static files which are not inside of wwwroot folder, then how can we access them*@
+    <img src="~\MyStaticFiles\photo.png" class="prabir" alt="img" />
+
+    @*add jquery file from lib, always add jquery file in last of the application*@
+    <script src="~/lib/jquery/jquery.js"></script>
 </body>
 </html>
+
+@*use the jquery here*@
+<script>
+    $(document).ready(function () {
+        alert("page loaded");
+    });
+</script>
+
+

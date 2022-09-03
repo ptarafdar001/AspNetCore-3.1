@@ -15,10 +15,10 @@ namespace BookStoreWebApplication.Controllers
         //}
 
         // add a new view() into the application
-        //public ViewResult Index()
-        //{
-        //    return View();
-        //}
+        public ViewResult Index()
+        {
+            return View();
+        }
 
         // add anothor view into the application
         public ViewResult AboutUs()
@@ -61,10 +61,11 @@ namespace BookStoreWebApplication.Controllers
         //{
         //    return View("~/TempView/PrabirTemp.cshtml");
         //}
+
         //2nd approuch
-        public ViewResult Index()
-        {
-            return View("../../TempView/PrabirTemp");
-        }
+        //public ViewResult Index()
+        //{
+        //    return View("../../TempView/PrabirTemp");
+        //}
     }
 }
